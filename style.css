@@ -5,13 +5,127 @@
     padding: 0;
     box-sizing: border-box;
     transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
 }
 
 
-.wrapper{
+.container{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     min-height: 100vh;
     background: #f1f1f1;
+    flex-direction: column;
+    padding: 20px 0 20px 0;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.card{
+    border: 1px solid black;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    gap: 10px;
+}
+form{
+    width: 100%;
+}
+.input-group{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px 5px 5px 5px;
+}
+
+.input{
+    width: 100%;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid black;
+}
+
+.btn-group{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.btn-submit{
+    font-size: 1.1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0;
+    background: #21992b;
+    box-shadow: 0 0 5px  0 rgba(0,0,0,0.5);
+    color:  #f1f1f1;
+    font-weight: 700;
+    width: 100%;
+    cursor: pointer;
+    &:hover{
+        filter: brightness(1.1);
+    }
+}
+
+ul li {
+    list-style: none;
+}
+
+ul{
+    margin-bottom: 20px;
+}
+.navigation{
+    width: 100%;
+    max-width: 800px;
+}
+.option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+li{
+    color: black;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 5px 10px 5px 10px;
+    background:#f1f1f1
+    text-decoration: none !important;
+
+    &:hover{
+        background: black;
+    }
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+    &:hover{
+        color: white;
+        background: black;
+    }
 }
