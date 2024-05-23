@@ -12,9 +12,12 @@ if (isset($_POST['clear_all_purchases'])) {
 <html>
 <head>
     <title>Purchase History</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Purchase History</h1>
+    <div class="container">
+        <div class="header"><h1>Purchase History</h1></div>
+    
     <?php if (!empty($_SESSION['purchases'])): ?>
         <ul>
             <?php 
@@ -31,12 +34,15 @@ if (isset($_POST['clear_all_purchases'])) {
         </ul>
         <p>Total Cost: <?php echo $total_cost; ?></p>
         <p>Total Items Sold: <?php echo $total_items; ?></p>
+        <div class="delete-container">
         <form method="post">
-            <button type="submit" name="clear_all_purchases">Clear All Purchases</button>
+            <button type="submit" class="clearBtn"name="clear_all_purchases">Clear All Purchases</button>
         </form>
+        </div>
     <?php else: ?>
         <p>No purchases made yet.</p>
     <?php endif; ?>
-    <a href="index.php">Back to Home</a>
+    <a href="index.php" class="btn-home">Back to Home</a>
+    </div>
 </body>
 </html>

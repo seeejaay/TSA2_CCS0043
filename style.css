@@ -186,11 +186,12 @@ a{
 }
 .clearBtn{
     padding: 10px;
-    border: 2px solid red;
+   border: 0;
     border-radius: 5px;
     font-size: 1rem;
-    background: red;
+    background: rgb(192, 26, 26);
     color: white;
+    cursor: pointer;
     box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
     &:hover{
         filter: brightness(1.2);
@@ -206,3 +207,4 @@ a{
         color: black !important;
     }
 }
+
