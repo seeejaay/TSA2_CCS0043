@@ -7,21 +7,25 @@ if (isset($_POST['purchase'])) {
     $id = $_POST['device_id'];
     $quantity = $_POST['quantity'];
 
-    if (isset($_SESSION['devices'][$id])) {
+    if ($quantity <= 0) {
+        $message = "Please enter a valid quantity.";
+    } elseif (isset($_SESSION['devices'][$id])) {
         $device = $_SESSION['devices'][$id];
 
         if ($device['quantity'] >= $quantity) {
             $_SESSION['devices'][$id]['quantity'] -= $quantity;
 
+            $total_price = $device['price'] * $quantity;
+
             $purchase = [
                 'name' => $device['name'],
                 'quantity' => $quantity,
                 'price' => $device['price'],
-                'total' => $device['price'] * $quantity,
+                'total' => $total_price,
                 'timestamp' => date('Y-m-d H:i:s')
             ];
             $_SESSION['purchases'][] = $purchase;
-            $message = "Purchase successful!";
+            $message = "Purchase successful! Total price: $total_price";
         } else {
             $message = "Insufficient quantity available.";
         }
@@ -37,6 +41,16 @@ if (isset($_POST['purchase'])) {
         function showMessage(message) {
             alert(message);
         }
+
+        // Function to validate quantity input
+        function validateQuantity() {
+            var quantityInput = document.getElementById('quantity').value;
+            if (quantityInput <= 0 || isNaN(quantityInput)) {
+                showMessage("Please enter a valid quantity.");
+                return false;
+            }
+            return true;
+        }
     </script>
 </head>
 <body>
@@ -48,12 +62,19 @@ if (isset($_POST['purchase'])) {
         </script>
     <?php endif; ?>
     <?php if (!empty($_SESSION['devices'])): ?>
-        <form method="post">
+        <ul>
+            <?php foreach ($_SESSION['devices'] as $id => $device): ?>
+                <li>
+                    <?php echo $device['name']; ?> - Price: <?php echo $device['price']; ?> - Available: <?php echo $device['quantity']; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <form method="post" onsubmit="return validateQuantity()">
             <label for="device_id">Select Device:</label>
             <select name="device_id" id="device_id">
                 <?php foreach ($_SESSION['devices'] as $id => $device): ?>
                     <option value="<?php echo $id; ?>">
-                        <?php echo $device['name']; ?> (Available: <?php echo $device['quantity']; ?>)
+                        <?php echo $device['name']; ?> (Price: <?php echo $device['price']; ?>, Available: <?php echo $device['quantity']; ?>)
                     </option>
                 <?php endforeach; ?>
             </select><br>
