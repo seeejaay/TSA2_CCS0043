@@ -180,3 +180,29 @@ a{
 .details{
     width: 100%;
 }
+
+.delete-container{
+    padding: 5px;
+}
+.clearBtn{
+    padding: 10px;
+    border: 2px solid red;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: red;
+    color: white;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+    &:hover{
+        filter: brightness(1.2);
+        color: white
+    }
+}
+
+.btn-home{
+    background: transparent !important ;
+    color: black !important;
+
+    &:hover{
+        color: black !important;
+    }
+}

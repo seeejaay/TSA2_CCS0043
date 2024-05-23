@@ -69,14 +69,16 @@ if (isset($_POST['clear_all_devices'])) {
                 </li>
             <?php endforeach; ?>
         </ul>
-        <form method="post" id="clearAllForm">
-            <button type="button" onclick="confirmClearAll()">Clear All Devices</button>
-            <input type="hidden" name="clear_all_devices">
-        </form>
+        <div class="delete-container">
+            <form method="post" id="clearAllForm">
+                <button type="button"class="clearBtn" onclick="confirmClearAll()">Clear All Devices</button>
+                <input type="hidden" name="clear_all_devices">
+            </form>
+        </div>
     <?php else: ?>
         <p>No devices available.</p>
     <?php endif; ?>
-    <a href="index.php">Back to Home</a>
+    <a href="index.php" class="btn-home">Back to Home</a>
     </div>
 </body>
 </html>
