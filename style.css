@@ -129,3 +129,54 @@ a{
         background: black;
     }
 }
+
+.devices{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100% !important;
+    display: flex;
+    
+    &:hover{
+        background: #f1f1f1;
+    }
+}
+
+
+.avail-device{
+    width: 100%;
+    max-width: 400px;display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.delete{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+   
+    border-radius: 5px;
+    background: rgb(182, 35, 35);
+    color: white;
+    &:hover{
+        filter:brightness(1.2)
+        background-color: red ;
+    }   
+}
+.delete-btn{
+    border: 0;
+    background:  rgb(182, 35, 35) !important;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover{
+        filter: brightness(1.2);
+        
+    }
+}
+.details{
+    width: 100%;
+}

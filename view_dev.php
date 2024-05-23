@@ -32,6 +32,7 @@ if (isset($_POST['clear_all_devices'])) {
 <html>
 <head>
     <title>View Devices</title>
+    <link rel="stylesheet" href="style.css">
     <script>
         // Function to display the popup message
         function showMessage(message) {
@@ -54,13 +55,17 @@ if (isset($_POST['clear_all_devices'])) {
     </script>
 </head>
 <body>
+    <div class="container">
     <h1>Available Devices</h1>
     <?php if (!empty($_SESSION['devices'])): ?>
-        <ul>
+        <ul class="avail-device">
             <?php foreach ($_SESSION['devices'] as $id => $device): ?>
-                <li>
-                    <?php echo implode(", ", $device); ?> 
-                    <a href="#" onclick="confirmDelete('view_dev.php?delete=<?php echo $id; ?>')">Delete</a>
+                <li class="devices">
+                    <div class="details"><?php echo implode(", ", $device); ?> </div>
+                    
+                    <div class="delete">
+                    <a href="#"  class="delete-btn"onclick="confirmDelete('view_dev.php?delete=<?php echo $id; ?>')">Delete</a>
+                    </div>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -72,5 +77,6 @@ if (isset($_POST['clear_all_devices'])) {
         <p>No devices available.</p>
     <?php endif; ?>
     <a href="index.php">Back to Home</a>
+    </div>
 </body>
 </html>
