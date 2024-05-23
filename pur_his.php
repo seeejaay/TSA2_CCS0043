@@ -4,7 +4,7 @@ session_start();
 // Handle clearing all purchases
 if (isset($_POST['clear_all_purchases'])) {
     $_SESSION['purchases'] = [];
-    header("Location: purchase_history.php");
+    header("Location: pur_his.php");
     exit();
 }
 ?>

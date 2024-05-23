@@ -15,11 +15,13 @@ if (isset($_POST['add'])) {
     $name = $_POST['name'];
     $price = $_POST['price'];
     $description = $_POST['description'];
+    $quantity = $_POST['quantity'];
 
     $device = [
         'name' => $name,
         'price' => $price,
-        'description' => $description
+        'description' => $description,
+        'quantity' => $quantity
     ];
 
     $_SESSION['devices'][] = $device;
@@ -44,6 +46,8 @@ if (isset($_POST['add'])) {
         <input type="number" name="price" id="price" required><br>
         <label for="description">Description:</label>
         <input type="text" name="description" id="description" required><br>
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" required><br>
         <button type="submit" name="add">Add Device</button>
     </form>
     <h2>Navigation</h2>
